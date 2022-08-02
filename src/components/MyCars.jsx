@@ -8,6 +8,16 @@ class MyCars extends Component {
     cars: ['Ford', 'Mercedes', 'Peugeot'],
   };
 
+  // No Copy
+  noCopy = () => {
+    alert('Merci de ne pas copier le texte');
+  };
+
+  // onMouseOver
+  addStyle = (e) => {
+    e.target.classList.toggle('styled');
+  };
+
   render() {
     const { title, color } = this.props;
 
@@ -18,6 +28,9 @@ class MyCars extends Component {
             {this.props.title}
           </Header>
         </Wrapper>
+        {/* <p onCopy={this.noCopy} onMouseOver={this.addStyle}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque atque numquam dolor magnam nulla cupiditate.
+        </p> */}
 
         <Car color="Red">{this.state.cars[0]}</Car>
         <Car>{this.state.cars[1]}</Car>
