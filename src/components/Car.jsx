@@ -1,11 +1,14 @@
 import Wrapper from './Wrapper';
 
-const Car = ({ children, color }) => {
+const Car = ({ name, color, year }) => {
   return (
-    children && (
+    name && (
       <Wrapper>
         <p>
-          Marque: <strong>{children}</strong>
+          Marque: <strong>{name}</strong>
+        </p>
+        <p>
+          Age: <strong>{year}</strong>
         </p>
         <p>
           Couleur: <strong>{color ? color : 'Pas de couleur'}</strong>
