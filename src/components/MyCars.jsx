@@ -49,9 +49,24 @@ class MyCars extends Component {
     });
   };
 
+  // getAge, adapte l'âge du véhicule
+  getAge = (year) => {
+    const currentYear = new Date().getFullYear();
+    const age = currentYear - year;
+
+    // ans, an, null
+    let frenchYearStr = '';
+
+    if (age === 1) {
+      frenchYearStr = 'an';
+    } else if (age > 1) {
+      frenchYearStr = 'ans';
+    }
+    return `${age} ${frenchYearStr}`;
+  };
+
   render() {
     const { title, color } = this.props;
-    const year = new Date().getFullYear();
 
     return (
       <div>
@@ -63,10 +78,10 @@ class MyCars extends Component {
 
         <button onClick={this.addTenYears}>+10 ans</button>
 
-        {this.state.cars.map((car, index) => {
+        {this.state.cars.map(({ name, color, year }, index) => {
           return (
             <div key={index}>
-              <Car name={car.name} color={car.color} year={year - car.year + ' ans'} />
+              <Car name={name} color={color} year={this.getAge(year)} />
             </div>
           );
         })}

@@ -1,6 +1,7 @@
 import './App.css';
 import { Component } from 'react';
 import MyCars from './components/MyCars';
+import Welcome from './components/Welcome';
 
 class App extends Component {
   state = {
@@ -35,6 +36,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Welcome />
         <MyCars color={this.state.color} title={this.state.title} />
         <button onClick={this.changeTitle}>Changer le nom</button>
         <button onClick={() => this.changeViaParam('Titre via param')}>Via param</button>
